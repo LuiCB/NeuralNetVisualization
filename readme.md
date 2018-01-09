@@ -2,7 +2,7 @@
 
 ##### (1) PRE-REQUESTS:
 	> Python3, django(version>=2.0.1), matplotlib, Numpy, Scipy
-	> matplotlib may need _tkinter modules
+	> matplotlib may need the "_tkinter" module
 
 ##### (2) HOW-TO:
 	> open a terminal
