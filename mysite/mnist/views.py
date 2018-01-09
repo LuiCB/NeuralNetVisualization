@@ -4,7 +4,7 @@ from django.shortcuts import render
 from mnist.models import InputForm
 import os
 cwd = os.getcwd()
-print(cwd)
+print("mnist:", cwd)
 import NeuralNet.testNN as nn
 from multiprocessing import Process, Pool
 p = Pool(1)
