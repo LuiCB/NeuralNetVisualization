@@ -64,13 +64,24 @@ def visualizeParam(model, outDir):
 	# im.savefig(outDir + "test.png")
 	scipy.misc.imsave(outDir, totalIMAGE)
 
-def plotLoss(x, y, xmax, ymax, outDir):
+def plotLoss(x, ys, colors, tags, xmax, ymax, outDir):
 	plt.axis([0, xmax, 0, ymax])
-	plt.plot(x, y, 'g--')
+	for i, y in enumerate(ys):
+		plt.plot(x, y, color=colors[i], linestyle="--", label=tags[i])
+	plt.legend()
 	# plt.xticks(range(xmax, 10), range(xmax, 10))
 	plt.savefig(outDir)
+
 
 if __name__ == "__main__":
 	test = np.array([1,0,-1, 0]).reshape(2,2)
 	print (test)
 	print (L1Gradient(test))
+	x = range(3)
+	ys = [[1, 2, 3], [2,3, 4], [3, 4, 5]]
+	colors = ["green", "orange", "red"]
+	tags = ["a", "b", "c"]
+	xmax = 6
+	ymax = 6
+	outDir = "./test.png"
+	plotLoss(x, ys, colors, tags, xmax, ymax, outDir)

@@ -6,7 +6,8 @@ import itertools as it
 import NeuralNet.basicNN as nn
 import pickle
 import NeuralNet.utils as utils
-
+# import utils
+# import basicNN as nn
 import os
 print("testNN:", os.getcwd())
 
@@ -238,8 +239,15 @@ def runModel(model, dataX, dataY, validX, validY, testX, testY, model_layers, co
     fmt = "epochNum={},trainCrossEntropy={},trainError={},validCrossEntropy={},validError={}"
     batches = list(zip(range(0, dataX.shape[0]+1, config.batch_size), range(config.batch_size, dataX.shape[0]+1, config.batch_size)))
     tlosses = []
+    vlosses = []
+    telosses = []
+    losses = [tlosses, vlosses, telosses]
+    colors = ['green', 'orange', 'red']
+    tags = ["train loss", "validation", "test loss"]
     for i in range(config.epoches):
         tmpLoss = 0
+        tmpvloss = 0
+        tmpteloss = 0
         print(i)
         for start, end in batches:
             iterNum += 1
@@ -249,26 +257,40 @@ def runModel(model, dataX, dataY, validX, validY, testX, testY, model_layers, co
             if config.batch_norm:
                 config = computeSampleMeanVariance(validX, config)
             vloss, vpredict, vaccu = model.runNet(validX, validY, config, iterNum, isTest=True)
+            tmpvloss += vloss
             if config.batch_norm:
                 config = computeSampleMeanVariance(testX, config)
             teloss, tepredict, teaccu = model.runNet(testX, testY, config, iterNum, isTest=True)
+            tmpteloss += teloss
             # print (i+1, tloss, 1-taccu, vloss, 1-vaccu, teloss, 1-teaccu)
         utils.visualizeParam(model, "./static/param.png")
         tmpLoss /= len(batches)
+        tmpteloss /= len(batches)
+        tmpvloss /= len(batches)
         tlosses.append(tmpLoss)
-        utils.plotLoss(range(1, len(tlosses)+1), tlosses, config.epoches+1, 2.5, "./static/plot.png")
+        telosses.append(tmpteloss)
+        vlosses.append(tmpvloss)
+        utils.plotLoss(range(1, len(tlosses)+1), losses, colors, tags, config.epoches+1, 2.5, "./static/plot.png")
     with open(config.outDir + "/" + model.name, 'wb') as file:
         pickle.dump(model, file, protocol=2)
     #print "model saved"
 
 def main():
     model_layers = architectureSigmoid(config.batch_size)
-    pathTrain = "/home/lui/CMU/Semester3/10707/hw1/data/digitstrain.txt"
-    pathTest = "/home/lui/CMU/Semester3/10707/hw1/data/digitstest.txt"
-    pathValid = "/home/lui/CMU/Semester3/10707/hw1/data/digitsvalid.txt"
+    pathTrain = "../data/digitstrain.txt"
+    pathTest = "../data/digitstest.txt"
+    pathValid = "../data/digitsvalid.txt"
+    # pathTrain = "/home/lui/CMU/Semester3/winterbreak/proj/NeuralNetVisualization/data/digitstest.txt"
+    # pathTest = "/home/lui/CMU/Semester3/winterbreak/proj/NeuralNetVisualization/data/digitstrain.txt"
+    # pathValid = "/home/lui/CMU/Semester3/winterbreak/proj/NeuralNetVisualization/data/digitsvalid.txt"
     dataX, dataY = loadData(pathTrain, 1)
     testX, testY = loadData(pathTest, 1)
     validX, validY = loadData(pathValid, 1)
+
+
+
+
+
 
     model = nn.NeuralNet("demo_test_bestPerform_5_9_100-100_180_none")    
     # training process

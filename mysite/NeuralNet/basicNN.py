@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import NeuralNet.utils as utils
-
+# import utils
 
 class NeuralNet:
     def __init__(self, name):
