@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import math
 import NeuralNet.utils as utils
 # import utils
+np.random.seed(100)
 
 class NeuralNet:
     def __init__(self, name):
