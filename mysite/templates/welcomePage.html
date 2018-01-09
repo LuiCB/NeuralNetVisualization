@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<head>
+	<title>
+		NeuralNet Visualization, version beta 0.1
+	</title>
+</head>
+
+<div class="page-header">
+	{% load staticfiles %}
+	<link href="https://fonts.googleapis.com/css?family=Bellefair|Cormorant+Garamond|PT+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+    <h1> A simple neural network on the MNIST dataset, with visualization </h1>
+    <p>version: beta 0.1,  update date: 01/08/2018</p>
+</div>
+
+<div class="right">
+		<img src="{%static  'mnist.png'%}">
+</div>
+
+<div>
+	<div class="left">
+		<div class="introduction">
+			{% load staticfiles %}
+			<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+			<h3># Introduction</h3>
+			<p>This is a tiny project for ML beginers to see how is the learning process of a neural network on a dataset by visualizing the loss plot and the parameters in a real-time way. Currently, I fix the model structure and the dataset (the MNIST). In the future, it would allow user to control the model structure via the interface and upload customized dataset.</p>
+		</div>
+
+		<div class="introduction">
+			{% load staticfiles %}
+			<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+			<h3># Pre-requests</h3>
+			<pre>Python3, django(version2.0.1), matplotlib, Numpy, Scipy</pre>
+			<pre>matplotlib needs _tkinter modules for some linux(ubuntu) users. use "apt install python3-tk" to install the tkinter for python3</pre>
+		</div>
+
+		<div class="how-to">
+			{% load staticfiles %}
+			<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+			<h3># HOW-TO</h3>
+			<pre>$ cd django-toy/mysite <br>$ python3 manage.py runserver</pre>
+			<p>open the url: http://127.0.0.1:8000/ in your browser</p>
+		</div>
+
+		<div class="github">
+			{% load staticfiles %}
+			<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+			<h3># GitHub</h3>
+			<p>Fork me: <a href="https://github.com/LuiCB"> https://github.com/LuiCB </a></p>
+		</div>
+
+		<div class="start">
+			{% load staticfiles %}
+			<link rel="stylesheet" href="{% static 'css/mysite.css' %}">
+			<h3># Start playing with the model!</h3>
+			<p>Click: <a href="/mnist/"> here </a></p>
+		</div>
+	</div>
+</div>

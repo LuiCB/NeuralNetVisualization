@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="https://fonts.googleapis.com/css?family=Bellefair|Cormorant+Garamond|PT+Sans" rel="stylesheet"> 
+
+
+<head>
+	<title>
+		Visualization of the Loss and Parameters
+	</title>
+	<script type="text/javascript">
+		window.setInterval(function()
+		{
+		    document.getElementById('plot').src = "/static/plot.png?random="+new Date().getTime();
+		}, 1000);
+		window.setInterval(function()
+		{
+		    document.getElementById('param').src = "/static/param.png?random="+new Date().getTime();
+		}, 1000);
+	</script>
+</head>
+
+<div class="page-header">
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/mnist.css' %}">
+    <h1> A simple neural network on the MNIST dataset, with visualization</h1>
+</div>
+
+
+<div class="control-buttons">
+	<h3># HOW-TO</h3>
+	<p> Click "start" to start the training process </p>
+	<p> Click "stop" to terminate the traning process</p>
+	<p>note: once "stop", the training process can't be restored!</p>
+	<form action = "" method = "post">{% csrf_token %}
+        <input type="submit" name="start" value="start"></input>
+		<button type="submit" name="stop" value="stop">stop</button>
+    </form>
+	
+</div>
+<!-- <div class="start">
+<form method=post action="">{% csrf_token %}
+<table>
+  {% for field in form %}
+    <tr>
+    <td>{{ field.name }}</td>
+    <td>{{ field }}</td>
+    <td>{{ field.label }}</td>
+    <td>{{ field.errors }}</td>
+    <td></td>
+    </tr>
+  {% endfor %}
+</table> -->
+<div class="images">
+	<div class="image">
+		<link rel="stylesheet" href="{% static 'css/mnist.css' %}">
+		<h3> # Cross Entropy Plot </h3>
+		<img src="{% static 'plot.png' %}" id="plot">
+	</div>
+	<div class="image">
+		<link rel="stylesheet" href="{% static 'css/mnist.css' %}">
+		<h3> # Parameters </h3>
+		<p>&nbsp;</p>
+		<img src="{% static 'param.png' %}" id="param"  height="400" width="400">
+	</div>
+</div>
+
+<div class="navg">
+	<p>Click: <a href="/"> BACK </a></p>
+</div>

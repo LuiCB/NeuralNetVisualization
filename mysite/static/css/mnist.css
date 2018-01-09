@@ -1,0 +1,37 @@
+h1, h2, h3 {
+    color: #050505;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+	color: #7900FA;
+	font-weight: bold;
+}
+
+.page-header {
+    background-color: #90FF6B;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.control-buttons{
+    padding: 20px 20px 20px 40px;
+}
+
+.images{
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    float:left;
+}
+
+.image{
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    float:left;
+}
+
+.navg{
+	clear: left; 
+	padding: 20px 20px 20px 40px;
+}
+

@@ -1,0 +1,47 @@
+h1, h2, h3 {
+    color: #050505;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+	color: #7900FA;
+	font-weight: bold;
+}
+
+.page-header {
+    background-color: #90FF6B;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.introduction {
+	color: #0000FF;
+	padding: 20px 20px 20px 40px;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.how-to {
+	color: #0000FF;
+	padding: 20px 20px 20px 40px;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.github {
+	color: #0000FF;
+	padding: 20px 20px 20px 40px;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.start {
+	color: #0000FF;
+	padding: 20px 20px 20px 40px;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	padding: 20px 20px 20px 40px;
+}
