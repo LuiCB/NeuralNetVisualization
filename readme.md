@@ -8,5 +8,5 @@
 	> open a terminal
 	> $ cd NeuralNetVisualiaztion
 	> $ cd mysite
-	> python nnVisual.py
+	> python nnVisual.py port-number (e.g.: python nnVisual.py 8080)
 	> open the url shown in the terminal

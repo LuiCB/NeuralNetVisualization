@@ -1,11 +1,13 @@
 import os
 import subprocess
+import sys
 
 print(os.getcwd())
 
-def runServer():
-	subprocess.run(['python3', 'manage.py', 'runserver', '8080'])
-	print("tset")
+def runServer(port):
+	subprocess.run(['python3', 'manage.py', 'runserver', port])
 
 if __name__ == "__main__":
-	runServer()
+	port = sys.argv[1]
+	print(port) 
+	runServer(port)
